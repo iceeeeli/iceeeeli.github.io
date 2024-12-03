@@ -6,12 +6,11 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
-    versioning-strategy: increase
-    ignore:
-      - dependency-name: "postcss"
-        versions: ["8.x"]
-      - dependency-name: "zod"
-        versions: ["3.x"]
+    versioning-strategy: widen
+    groups:
+      dependencies:
+        patterns:
+          - "*"
 
   # 后端依赖更新
   - package-ecosystem: "npm"
@@ -19,7 +18,11 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
-    versioning-strategy: increase
+    versioning-strategy: widen
+    groups:
+      dependencies:
+        patterns:
+          - "*"
 
   # 共享包依赖更新
   - package-ecosystem: "npm"
@@ -27,10 +30,14 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
-    versioning-strategy: increase
+    versioning-strategy: widen
+    groups:
+      dependencies:
+        patterns:
+          - "*"
 
   # GitHub Actions 更新
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly" 
+      interval: "monthly"
