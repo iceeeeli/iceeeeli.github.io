@@ -9,7 +9,7 @@
     "init-db": "bash scripts/init-db.sh"
   },
   "dependencies": {
-    "koa": "^2.14.2",
+    "koa": "^2.15.3",
     "koa-router": "^12.0.0",
     "koa-bodyparser": "^4.4.1",
     "@koa/cors": "^4.0.0",
