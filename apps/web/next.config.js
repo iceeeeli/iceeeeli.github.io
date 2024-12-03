@@ -5,8 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/iceeeeli.github.io' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/iceeeeli.github.io/' : '',
+  basePath: '',
+  assetPrefix: '',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
 }
