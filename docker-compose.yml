@@ -1,0 +1,41 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://server:3001
+
+  server:
+    build:
+      context: ./apps/server
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - DB_HOST=db
+    depends_on:
+      - db
+
+  ai-service:
+    build:
+      context: ./apps/ai-service
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+
+  db:
+    image: mysql:8
+    ports:
+      - "8888:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=ice_db
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data: 

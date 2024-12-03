@@ -1,0 +1,12 @@
+personal-website/
+├── package.json
+├── pnpm-workspace.yaml
+├── apps/
+│   ├── web/                 # Next.js 前端应用
+│   ├── server/              # Node.js + Koa2 服务
+│   └── ai-service/          # Python AI 服务
+├── packages/
+│   ├── ui/                  # 共享 UI 组件
+│   ├── config/             # 共享配置
+│   └── types/              # 共享类型定义
+└── turbo.json 
