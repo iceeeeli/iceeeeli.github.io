@@ -7,6 +7,8 @@ const nextConfig = {
   },
   basePath: process.env.NODE_ENV === 'production' ? '/iceeeeli.github.io' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/iceeeeli.github.io/' : '',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
 }
 
 module.exports = nextConfig 

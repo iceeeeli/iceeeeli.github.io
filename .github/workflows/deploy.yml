@@ -46,21 +46,22 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Clean cache
-        run: pnpm store prune
-
       - name: Build
         run: |
           cd apps/web
           pnpm build
-          pnpm export
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
           NODE_ENV: production
+
+      - name: Add .nojekyll file
+        run: |
+          cd apps/web/out
+          touch .nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: apps/web/out
-          clean: true 
+          clean: true
